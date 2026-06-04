@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Escola da IA | Domine a Inteligência Artificial</title>
+  <meta name="description" content="Domine a Inteligência Artificial com a Escola da IA — aprenda a criar vídeos profissionais com IA, venda seus serviços, crie conteúdos virais e monetize suas redes sociais." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="preload" href="https://scripts.converteai.net/e27a5abd-08c6-448d-a8ab-8d3afef5259f/players/69655fb2e9321dd80f6898d4/v4/player.js" as="script" />
+  <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script" />
+  <link rel="preload" href="https://cdn.converteai.net/e27a5abd-08c6-448d-a8ab-8d3afef5259f/69655f7e23fc590cf3645987/main.m3u8" as="fetch" />
+  <meta name="theme-color" content="#0A1A0F" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0A1A0F;
+      color: #fff;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== ANIMAÇÕES ===== */
+    .eia-fade {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: eia-fadein 0.6s ease forwards;
+    }
+    @keyframes eia-fadein {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .eia-fade-1 { animation-delay: 0.1s; }
+    .eia-fade-2 { animation-delay: 0.3s; }
+    .eia-fade-3 { animation-delay: 0.5s; }
+    .eia-fade-4 { animation-delay: 0.7s; }
+
+    .eia-reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .eia-reveal.eia-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .eia-reveal-d1 { transition-delay: 0.1s; }
+    .eia-reveal-d2 { transition-delay: 0.25s; }
+    .eia-reveal-d3 { transition-delay: 0.4s; }
+
+    /* ===== HERO ===== */
+    .hero {
+      text-align: center;
+      padding: 52px 24px 60px;
+      overflow: hidden;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #66D9A0;
+      margin-bottom: 20px;
+    }
+
+    .hero-eyebrow-line {
+      width: 28px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #00C853);
+    }
+    .hero-eyebrow-line.right {
+      background: linear-gradient(90deg, #00C853, transparent);
+    }
+
+    .hero-title {
+      margin: 0 auto 24px;
+      max-width: 680px;
+      font-size: clamp(28px, 6vw, 52px);
+      font-weight: 900;
+      line-height: 1.15;
+      color: #fff;
+      letter-spacing: -1px;
+    }
+
+    .hero-title .grad {
+      background: linear-gradient(95deg, #66D9A0 0%, #00C853 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-title .white {
+      color: #fff;
+      -webkit-text-fill-color: #fff;
+    }
+
+    .hero-sub {
+      margin: 0 auto 32px;
+      max-width: 520px;
+      font-size: clamp(14px, 2.4vw, 17px);
+      font-weight: 400;
+      color: rgba(255,255,255,0.48);
+      line-height: 1.75;
+    }
+
+    .hero-sub strong {
+      color: rgba(255,255,255,0.82);
+      font-weight: 600;
+    }
+
+    .hero-chips {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: nowrap;
+    }
+
+    .hero-chip {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: clamp(10px, 1.8vw, 12px);
+      font-weight: 600;
+      color: rgba(255,255,255,0.55);
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      white-space: nowrap;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .hero-chip svg { display: block; flex-shrink: 0; }
+
+    @media (max-width: 480px) {
+      .hero { padding: 40px 16px 48px; }
+      .hero-title { letter-spacing: -0.5px; }
+      .hero-chips { gap: 5px; }
+      .hero-chip { padding: 5px 8px; }
+    }
+
+    /* ===== VTurb WRAPPER ===== */
+    .vsl-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .vsl-wrap vturb-smartplayer {
+      position: absolute;
+      inset: 0;
+      width: 100% !important;
+      height: 100% !important;
+      z-index: 0;
+      display: block;
+    }
+
+    @supports not (aspect-ratio: 1 / 1) {
+      .vsl-wrap { height: 0; padding-top: 56.25%; }
+      .vsl-wrap vturb-smartplayer { position: absolute; inset: 0; }
+    }
+
+    /* ===== SEÇÃO HEADER (Grade/FAQ/etc) ===== */
+    .section-head {
+      text-align: center;
+      padding: 16px 24px 8px;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #66D9A0;
+      margin-bottom: 16px;
+    }
+
+    .section-eyebrow-line {
+      width: 28px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #00C853);
+    }
+
+    .section-eyebrow-line.right {
+      background: linear-gradient(90deg, #00C853, transparent);
+    }
+
+    .section-title {
+      margin: 0 auto 12px;
+      max-width: 680px;
+      font-size: clamp(22px, 4.5vw, 36px);
+      font-weight: 900;
+      line-height: 1.2;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    .section-title .s-grad {
+      background: linear-gradient(95deg, #66D9A0 0%, #00C853 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.38);
+      line-height: 1.6;
+    }
+
+    .section-meta strong {
+      color: rgba(255,255,255,0.7);
+      font-weight: 600;
+    }
+
+    @media (max-width: 480px) {
+      .section-head { padding: 12px 20px 6px; }
+      .section-title { font-size: clamp(20px, 6vw, 28px); }
+      .section-meta { flex-direction: column; gap: 2px; }
+    }
+
+    /* ===== YOUTUBE SHORTS CARD ===== */
+    .yt-shorts-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+    }
+
+    .yt-shorts-card {
+      width: min(100%, 340px);
+      aspect-ratio: 9/16;
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #0a0a0a;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.08);
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .yt-thumb {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: brightness(0.6);
+    }
+
+    .yt-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      pointer-events: none;
+    }
+
+    .yt-banner-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 78%;
+      background: #006B2E;
+      border-radius: 6px;
+      border: 2px solid #00C853;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      z-index: 10;
+      cursor: pointer;
+      animation: vturb-pulse 1.6s ease-in-out infinite;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    @keyframes vturb-pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.7; }
+    }
+
+    .yt-banner-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: #fff;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .yt-play-icon {
+      width: 40px;
+      height: 40px;
+      color: #fff;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+    }
+
+    .yt-banner-cta {
+      font-size: 12px;
+      font-weight: 800;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin: 0;
+    }
+
+    /* ===== CARD OFERTA ===== */
+    .eia-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .eia-card {
+      width: 100%;
+      max-width: 460px;
+      background: #0D1F12;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(0,200,83,0.2);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.04) inset, 0 32px 80px rgba(0,0,0,0.6);
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .eia-top-bar {
+      height: 3px;
+      background: linear-gradient(90deg, #00C853, #006B2E, #00C853);
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .eia-header {
+      padding: 24px 28px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .eia-tags {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .eia-badge {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #006B2E, #00C853);
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .eia-tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 11px;
+      border-radius: 999px;
+      background: rgba(0,200,83,0.1);
+      border: 1px solid rgba(0,200,83,0.25);
+      color: #66D9A0;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .eia-title {
+      margin: 0 0 6px;
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.25;
+    }
+
+    .eia-sub {
+      margin: 0;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+
+    .eia-body {
+      padding: 22px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .eia-was {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 4px;
+    }
+
+    .eia-was s {
+      color: rgba(255,255,255,0.3);
+    }
+
+    .eia-price-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      margin: 2px 0 6px;
+    }
+
+    .eia-currency {
+      font-size: 22px;
+      font-weight: 700;
+      color: #66D9A0;
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+
+    .eia-price-big {
+      font-size: clamp(42px, 10vw, 56px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .eia-badge-off {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(255,77,77,0.12);
+      border: 1px solid rgba(255,77,77,0.3);
+      color: #FF6B6B;
+      margin-bottom: 10px;
+    }
+
+    .eia-installment {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 16px;
+    }
+
+    .eia-installment strong {
+      color: #66D9A0;
+      font-weight: 700;
+    }
+
+    .eia-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+      margin: 18px 0;
+    }
+
+    .eia-check-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .eia-check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      padding: 6px 0;
+    }
+
+    .eia-check-list li svg {
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .eia-footer {
+      padding: 20px 28px 24px;
+    }
+
+    .eia-cta {
+      display: block;
+      width: 100%;
+      padding: 18px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #00C853, #009624);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,200,83,0.35);
+    }
+
+    .eia-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,200,83,0.5);
+    }
+
+    .eia-cta:active {
+      transform: translateY(0);
+    }
+
+    .eia-urgency {
+      text-align: center;
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      margin-top: 12px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ===== PROVA SOCIAL ===== */
+    .social-proof {
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    .social-proof-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+      max-width: 900px;
+      margin: 24px auto 0;
+      padding: 0 12px;
+    }
+
+    .social-proof-card {
+      background: #0D1F12;
+      border-radius: 16px;
+      padding: 16px;
+      border: 1px solid rgba(0,200,83,0.08);
+      text-align: left;
+      transition: border-color 0.2s;
+    }
+
+    .social-proof-card:hover {
+      border-color: rgba(0,200,83,0.2);
+    }
+
+    .proof-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .proof-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #006B2E, #00C853);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .proof-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .proof-time {
+      font-size: 10px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .proof-text {
+      font-size: 12px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+    }
+
+    .proof-text .highlight {
+      color: #66D9A0;
+      font-weight: 600;
+    }
+
+    .social-proof-cta {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 14px 36px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #00C853, #009624);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0,200,83,0.3);
+    }
+
+    .social-proof-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,200,83,0.45);
+    }
+
+    /* ===== SOBRE ===== */
+    .sobre {
+      padding: 3rem 1rem;
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .sobre-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(0,200,83,0.3);
+      margin-bottom: 24px;
+    }
+
+    .sobre-nome {
+      font-size: 24px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .sobre-stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .sobre-stat {
+      text-align: center;
+    }
+
+    .sobre-stat-num {
+      font-size: 24px;
+      font-weight: 900;
+      color: #66D9A0;
+      line-height: 1;
+    }
+
+    .sobre-stat-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 4px;
+    }
+
+    .sobre-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.6);
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .sobre-text strong {
+      color: rgba(255,255,255,0.85);
+      font-weight: 600;
+    }
+
+    .sobre-social {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.5);
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .sobre-social:hover {
+      background: rgba(0,200,83,0.08);
+      border-color: rgba(0,200,83,0.2);
+      color: #66D9A0;
+    }
+
+    /* ===== GARANTIA ===== */
+    .garantia {
+      padding: 2rem 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .garantia-title {
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 900;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .garantia-title .s-grad {
+      background: linear-gradient(95deg, #66D9A0 0%, #00C853 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .garantia-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .garantia-sub strong {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .garantia-items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .garantia-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .garantia-item strong {
+      color: rgba(255,255,255,0.8);
+    }
+
+    .garantia-item svg {
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .garantia-kiwify {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      margin-top: 16px;
+    }
+
+    .garantia-kiwify strong {
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ===== FAQ ===== */
+    .faq {
+      max-width: 660px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+
+    .faq-item {
+      margin-bottom: 8px;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 16px 20px;
+      background: #0D1F12;
+      border: 1px solid rgba(0,200,83,0.08);
+      border-radius: 12px;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: border-color 0.2s;
+    }
+
+    .faq-question:hover {
+      border-color: rgba(0,200,83,0.2);
+    }
+
+    .faq-question svg {
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-question.active svg {
+      transform: rotate(180deg);
+    }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-body.open {
+      max-height: 500px;
+      padding: 12px 20px 20px;
+    }
+
+    .faq-body-inner {
+      font-size: 13px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .faq-body-inner strong {
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .footer-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.35);
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 20px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .footer-contact:hover {
+      border-color: rgba(0,200,83,0.2);
+      color: rgba(255,255,255,0.6);
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(255,255,255,0.15);
+      letter-spacing: 0.3px;
+    }
+
+    /* ===== CONTAINERS ===== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    section {
+      padding: 2rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .social-proof-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section style="background: #0A1A0F;">
+  <div class="hero">
+    <div class="hero-eyebrow eia-fade eia-fade-1">
+      <span class="hero-eyebrow-line"></span>
+      Escola da IA
+      <span class="hero-eyebrow-line right"></span>
+    </div>
+    <h1 class="hero-title eia-fade eia-fade-2">
+      <span class="grad">Domine a Inteligência</span><br />
+      <span class="grad">Artificial</span>
+      <span class="white"> e transforme</span><br />
+      <span class="white">seu futuro</span>
+    </h1>
+    <p class="hero-sub eia-fade eia-fade-3">
+      Aprenda a criar <strong>vídeos profissionais com IA</strong>, venda seus serviços,
+      produza <strong>conteúdos virais</strong> e monetize suas redes sociais —
+      mesmo começando do zero.
+    </p>
+    <div class="hero-chips eia-fade eia-fade-4">
+      <div class="hero-chip">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="#00C853"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+        +100 aulas atualizadas
+      </div>
+      <div class="hero-chip">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="#00C853"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+        Acesso vitalício
+      </div>
+      <div class="hero-chip">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="#00C853"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+        Suporte exclusivo
+      </div>
+    </div>
+  </div>
+
+  <!-- === VTURB PLAYER === -->
+  <div class="vsl-wrap" style="padding: 0 16px 0;">
+    <vturb-smartplayer id="vid-6a20c98d8ffcce0a13060ec2" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
+  </div>
+
+  <!-- === CTA HERO === -->
+  <div style="text-align: center; padding: 24px 16px 40px;">
+    <a href="https://pay.kiwify.com.br/2caVtSi?afid=EH60INrp" target="_blank" class="eia-cta" style="display: inline-block; max-width: 400px; width: 100%;">
+      QUERO ENTRAR PARA A ESCOLA DA IA
+    </a>
+  </div>
+</section>
+
+<!-- ===== GRADE DE CONTEÚDO ===== -->
+<section style="background: #0A1A0F;">
+  <div class="section-head">
+    <div class="section-eyebrow eia-reveal eia-reveal-d1">
+      <span class="section-eyebrow-line"></span>
+      Grade de conteúdo
+      <span class="section-eyebrow-line right"></span>
+    </div>
+    <h2 class="section-title eia-reveal eia-reveal-d2">
+      Veja as <span class="s-grad">+ 100 aulas</span> disponíveis
+      atualmente na <span class="s-grad">Escola da IA</span>
+    </h2>
+    <div class="section-meta eia-reveal eia-reveal-d3">
+      <span>Atualizado em <strong>02/06/2026</strong></span>
+    </div>
+  </div>
+
+  <!-- === YOUTUBE SHORTS CARD === -->
+  <div class="yt-shorts-wrap">
+    <div class="yt-shorts-card"
+      data-id="7lAVM2pgQBM"
+      role="button"
+      aria-label="Reproduzir vídeo"
+      tabindex="0"
+      onclick="window.open('https://www.youtube.com/shorts/7lAVM2pgQBM', '_blank')"
+    >
+      <div class="yt-thumb" style="background-image: url('https://i.ytimg.com/vi/7lAVM2pgQBM/hqdefault.jpg');"></div>
+      <div class="yt-overlay"></div>
+      <div class="yt-banner-overlay">
+        <p class="yt-banner-title">Conheça todas as aulas</p>
+        <svg class="yt-play-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+        <p class="yt-banner-cta">Clique para assistir</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- === CARD OFERTA === -->
+  <div class="eia-wrap">
+    <div class="eia-card">
+      <div class="eia-top-bar"></div>
+      <div class="eia-header">
+        <div class="eia-tags">
+          <span class="eia-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            Escola da IA
+          </span>
+          <span class="eia-tag">Acesso vitalício</span>
+        </div>
+        <h2 class="eia-title">Curso Completo Escola da IA</h2>
+        <p class="eia-sub">Todos os módulos + atualizações futuras incluídas.</p>
+      </div>
+
+      <div class="eia-body">
+        <p class="eia-was">De <s>R$297,00</s></p>
+        <div class="eia-price-row">
+          <span class="eia-currency">R$</span>
+          <span class="eia-price-big">167</span>
+          <span class="eia-badge-off">-44% OFF</span>
+        </div>
+        <p class="eia-installment">ou <strong>12x de R$17,27</strong> sem juros</p>
+
+        <div class="eia-divider"></div>
+
+        <ul class="eia-check-list">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#00C853"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            Todos os módulos liberados imediatamente
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#00C853"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            Atualizações gratuitas para sempre
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#00C853"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            Certificado de conclusão incluso
+          </li>
+        </ul>
+      </div>
+
+      <div class="eia-footer">
+        <a href="https://pay.kiwify.com.br/2caVtSi?afid=EH60INrp" target="_blank" class="eia-cta">
+          GARANTIR MEU ACESSO AGORA
+        </a>
+        <p class="eia-urgency">Oferta por tempo limitado · Não perca esta chance</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROVA SOCIAL ===== -->
+<section style="background: #0D1F12;">
+  <div class="social-proof">
+    <div class="section-head">
+      <div class="section-eyebrow eia-reveal eia-reveal-d1">
+        <span class="section-eyebrow-line"></span>
+        Prova social
+        <span class="section-eyebrow-line right"></span>
+      </div>
+      <h2 class="section-title eia-reveal eia-reveal-d2">
+        O que os alunos da <span class="s-grad">Escola da IA</span>
+        estão dizendo?
+      </h2>
+      <p style="font-size: 12px; color: rgba(255,255,255,0.3); margin-top: 4px; font-weight: 500;">
+        Prints reais de WhatsApp e grupo de alunos
+      </p>
+    </div>
+
+    <div class="social-proof-grid">
+      <div class="social-proof-card">
+        <div class="proof-header">
+          <div class="proof-avatar">C</div>
+          <div>
+            <div class="proof-name">Carlos M.</div>
+            <div class="proof-time">há 2 dias</div>
+          </div>
+        </div>
+        <div class="proof-text">
+          "Nunca imaginei que com IA dava pra fazer <span class="highlight">vídeos desse nível</span>. Já tô aplicando no meu negócio!"
+        </div>
+      </div>
+
+      <div class="social-proof-card">
+        <div class="proof-header">
+          <div class="proof-avatar">A</div>
+          <div>
+            <div class="proof-name">Ana P.</div>
+            <div class="proof-time">há 5 dias</div>
+          </div>
+        </div>
+        <div class="proof-text">
+          "O método é muito prático. Em uma semana já tinha <span class="highlight">meu primeiro vídeo viral</span> no TikTok."
+        </div>
+      </div>
+
+      <div class="social-proof-card">
+        <div class="proof-header">
+          <div class="proof-avatar">R</div>
+          <div>
+            <div class="proof-name">Rafael S.</div>
+            <div class="proof-time">há 1 semana</div>
+          </div>
+        </div>
+        <div class="proof-text">
+          "Já vendi <span class="highlight">3 serviços</span> usando os vídeos que aprendi a fazer aqui."
+        </div>
+      </div>
+
+      <div class="social-proof-card">
+        <div class="proof-header">
+          <div class="proof-avatar">J</div>
+          <div>
+            <div class="proof-name">Juliana L.</div>
+            <div class="proof-time">há 3 dias</div>
+          </div>
+        </div>
+        <div class="proof-text">
+          "Saí do zero total. Hoje crio <span class="highlight">conteúdo todo dia</span> sem depender de ninguém!"
+        </div>
+      </div>
+
+      <div class="social-proof-card">
+        <div class="proof-header">
+          <div class="proof-avatar">M</div>
+          <div>
+            <div class="proof-name">Marcos V.</div>
+            <div class="proof-time">há 1 semana</div>
+          </div>
+        </div>
+        <div class="proof-text">
+          "O curso vale muito mais que o preço. As <span class="highlight">ferramentas que ensinam</span> são as mesmas dos profissionais."
+        </div>
+      </div>
+
+      <div class="social-proof-card">
+        <div class="proof-header">
+          <div class="proof-avatar">F</div>
+          <div>
+            <div class="proof-name">Fernanda R.</div>
+            <div class="proof-time">há 4 dias</div>
+          </div>
+        </div>
+        <div class="proof-text">
+          "Ganhei <span class="highlight">confiança</span> pra criar conteúdo. O passo a passo é muito claro!"
+        </div>
+      </div>
+    </div>
+
+    <a href="https://pay.kiwify.com.br/2caVtSi?afid=EH60INrp" target="_blank" class="social-proof-cta">
+      QUERO COMEÇAR AGORA
+    </a>
+  </div>
+</section>
+
+<!-- ===== SOBRE O AUTOR ===== -->
+<section style="background: #0A1A0F;">
+  <div class="sobre">
+    <div class="section-eyebrow eia-reveal eia-reveal-d1">
+      <span class="section-eyebrow-line"></span>
+      Quem sou eu
+      <span class="section-eyebrow-line right"></span>
+    </div>
+    <img
+      src="https://escoladaia.com/wp-content/uploads/2026/02/Your-paragraph-text-11.png"
+      alt="Matheus Delalibera"
+      class="sobre-image"
+      style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(0,200,83,0.3); margin-top: 24px;"
+    />
+
+    <h2 class="sobre-nome eia-reveal eia-reveal-d2">Matheus Delalibera</h2>
+
+    <div class="sobre-stats eia-reveal eia-reveal-d3">
+      <div class="sobre-stat">
+        <div class="sobre-stat-num">+3M</div>
+        <div class="sobre-stat-label">inscritos nos canais</div>
+      </div>
+      <div class="sobre-stat">
+        <div class="sobre-stat-num">7</div>
+        <div class="sobre-stat-label">canais monetizados</div>
+      </div>
+      <div class="sobre-stat">
+        <div class="sobre-stat-num">+3.000</div>
+        <div class="sobre-stat-label">alunos na Escola da IA</div>
+      </div>
+    </div>
+
+    <p class="sobre-text">
+      Meu nome é <strong>Matheus Delalibera</strong>, tenho 31 anos, sou de Londrina – PR e
+      desde 2016 vivo do que mais amo: <strong>criar conteúdo no YouTube</strong>. Hoje
+      administro <strong>7 canais monetizados</strong> que juntos somam mais de
+      <strong>3 milhões de inscritos</strong>.
+    </p>
+    <p class="sobre-text">
+      Sou <strong>especialista em Inteligência Artificial e YouTube</strong>, e nos últimos anos
+      venho ajudando criadores, empreendedores e empresas a transformar ideias em
+      <strong>vídeos virais, profissionais e que vendem</strong>. Acredito que a IA não é o
+      futuro: ela já é o presente — e quem dominar agora, sai na frente.
+    </p>
+    <p class="sobre-text">
+      Criei a <strong>Escola da IA</strong> para ensinar de forma prática como qualquer pessoa
+      pode usar ferramentas como <strong>VEO3, Nano Banana, Grok, Elevenlabs, Fish audio, Ideogram,
+      MidJourney, ChatGPT, Gemini, KlingAI, Dreamface, Heygen</strong> e muitas outras para criar
+      vídeos completos: com roteiro, imagem, movimento, voz, efeitos sonoros e edição pronta
+      para publicar.
+    </p>
+    <p class="sobre-text">
+      Meu propósito é mostrar que você não precisa de câmeras caras, editores ou equipe para
+      ter resultados. Com o método certo, você pode <strong>vender mais, divulgar sua marca ou
+      viralizar no YouTube, Instagram e TikTok</strong> — usando apenas Inteligência Artificial.
+    </p>
+
+    <a href="https://www.instagram.com/mathdelalibera" target="_blank" class="sobre-social">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+      </svg>
+      @mathdelalibera
+    </a>
+  </div>
+</section>
+
+<!-- ===== OFERTA + GARANTIA ===== -->
+<section style="background: #0D1F12;">
+  <div class="eia-wrap">
+    <div class="eia-card">
+      <div class="eia-top-bar"></div>
+      <div class="eia-header">
+        <div class="eia-tags">
+          <span class="eia-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            Escola da IA
+          </span>
+          <span class="eia-tag">Acesso vitalício</span>
+        </div>
+        <h2 class="eia-title">Sua oportunidade de entrar na Escola da IA</h2>
+        <p class="eia-sub">Acesso completo a todos os módulos, atualizações futuras e suporte exclusivo.</p>
+      </div>
+
+      <div class="eia-body">
+        <p class="eia-was">De <s>R$297,00</s></p>
+        <div class="eia-price-row">
+          <span class="eia-currency">R$</span>
+          <span class="eia-price-big">167</span>
+          <span class="eia-badge-off">-44% OFF</span>
+        </div>
+        <p class="eia-installment">ou <strong>12x de R$17,27</strong> sem juros</p>
+
+        <div class="eia-divider"></div>
+
+        <p style="font-size: 12px; color: rgba(255,255,255,0.5); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">
+          Ao comprar, você recebe:
+        </p>
+
+        <ul class="eia-check-list">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#00C853"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            <div><strong style="color: rgba(255,255,255,0.8);">Curso completo da Escola da IA</strong><br /><span style="font-size: 12px; color: rgba(255,255,255,0.4);">Mais de 100 aulas disponíveis.</span></div>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#00C853"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            <div><strong style="color: rgba(255,255,255,0.8);">Acesso vitalício</strong><br /><span style="font-size: 12px; color: rgba(255,255,255,0.4);">Para sempre, sem mensalidade.</span></div>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#00C853"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            <div><strong style="color: rgba(255,255,255,0.8);">Atualizações futuras incluídas</strong><br /><span style="font-size: 12px; color: rgba(255,255,255,0.4);">Novas aulas e melhorias contínuas.</span></div>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#00C853"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            <div><strong style="color: rgba(255,255,255,0.8);">Grupo de alunos + suporte</strong><br /><span style="font-size: 12px; color: rgba(255,255,255,0.4);">Suporte contínuo para acelerar sua evolução.</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="eia-footer">
+        <a href="https://pay.kiwify.com.br/2caVtSi?afid=EH60INrp" target="_blank" class="eia-cta">
+          GARANTIR MEU ACESSO AGORA
+        </a>
+        <div style="display: flex; justify-content: center; gap: 4px; margin-top: 12px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#00C853"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+          <span style="font-size: 11px; color: rgba(255,255,255,0.4); font-weight: 500;">Compra 100% segura</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === GARANTIA === -->
+  <div class="garantia">
+    <h2 class="garantia-title">
+      <span class="s-grad">Garantia de 7 dias</span><br />
+      sem burocracia
+    </h2>
+    <p class="garantia-sub">
+      Se por qualquer motivo você não ficar satisfeito, basta solicitar o reembolso
+      em até <strong>7 dias</strong> após a compra e devolvemos
+      <strong>100% do seu dinheiro</strong> — sem perguntas, sem complicação.
+    </p>
+    <div class="garantia-items">
+      <div class="garantia-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#00C853"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+        <div><strong>Sem risco</strong> — você tem 7 dias para testar à vontade</div>
+      </div>
+      <div class="garantia-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#00C853"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+        <div><strong>Reembolso total</strong> — 100% do valor pago de volta</div>
+      </div>
+      <div class="garantia-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#00C853"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+        <div><strong>Processado pela Kiwify</strong> — plataforma segura e confiável</div>
+      </div>
+    </div>
+    <p class="garantia-kiwify">Pagamento processado com segurança pela <strong>Kiwify</strong></p>
+
+    <a href="https://pay.kiwify.com.br/2caVtSi?afid=EH60INrp" target="_blank" class="social-proof-cta" style="margin-top: 20px;">
+      GARANTIR MEU ACESSO AGORA
+    </a>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section style="background: #0A1A0F;">
+  <div class="section-head">
+    <div class="section-eyebrow eia-reveal eia-reveal-d1">
+      <span class="section-eyebrow-line"></span>
+      Dúvidas frequentes
+      <span class="section-eyebrow-line right"></span>
+    </div>
+    <h2 class="section-title eia-reveal eia-reveal-d2">
+      Perguntas sobre a <span class="s-grad">Escola da IA</span>
+    </h2>
+  </div>
+
+  <div class="faq">
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFAQ(this)">
+        <span>O que vou aprender na Escola da IA?</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(255,255,255,0.3)"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          Você vai aprender a criar vídeos completos com Inteligência Artificial — do roteiro à publicação. Usando ferramentas como VEO3, ChatGPT, MidJourney, Elevenlabs, CapCut e muitas outras, você vai dominar cada etapa da produção de conteúdo com IA.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFAQ(this)">
+        <span>Preciso pagar pelas ferramentas de IA?</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(255,255,255,0.3)"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          A maioria das ferramentas que ensinamos tem versão gratuita ou trial. Conforme você for avançando, pode optar pelos planos pagos para ter ainda mais recursos. O curso mostra todo o passo a passo.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFAQ(this)">
+        <span>A Escola da IA oferece suporte?</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(255,255,255,0.3)"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          Sim! Você terá acesso ao grupo exclusivo de alunos com suporte contínuo para acelerar sua evolução e tirar todas as dúvidas.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFAQ(this)">
+        <span>O curso tem certificado?</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(255,255,255,0.3)"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          Sim, ao concluir o curso você recebe um certificado de conclusão incluso.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFAQ(this)">
+        <span>E se eu não gostar, posso pedir reembolso?</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(255,255,255,0.3)"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          <strong>Sim. Garantia de 7 dias</strong> pela <strong>Kiwify</strong>, sem burocracia. Se não gostar, devolvemos 100% do seu dinheiro.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFAQ(this)">
+        <span>As aulas são longas?</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(255,255,255,0.3)"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          As aulas são objetivas e direto ao ponto. Você aprende na prática, sem enrolação. A maioria dos módulos tem menos de 20 minutos.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFAQ(this)">
+        <span>O conteúdo é atualizado?</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(255,255,255,0.3)"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          Sim! As ferramentas de IA evoluem rápido, e o curso é constantemente atualizado. Você recebe todas as novas aulas gratuitamente (última atualização em 02/06/2026).
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFAQ(this)">
+        <span>O acesso é vitalício?</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(255,255,255,0.3)"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          Sim, acesso vitalício sem mensalidade. Você pode assistir quando e onde quiser, para sempre.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFAQ(this)">
+        <span>As aulas são práticas mesmo?</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(255,255,255,0.3)"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+      </button>
+      <div class="faq-body">
+        <div class="faq-body-inner">
+          100% práticas: passo a passo para vídeos, imagens, vozes, edição de vídeo, efeitos sonoros, efeitos visuais, criação de vídeos com avatares consistentes, vídeos de venda, vídeos virais para as redes sociais, como ganhar dinheiro com os vídeos e muito mais.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <a href="https://www.instagram.com/mathdelalibera" target="_blank" class="footer-contact">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+    </svg>
+    @mathdelalibera
+  </a>
+  <p class="footer-copy">Copyright 2026 © | Escola da IA | Todos os direitos reservados</p>
+</footer>
+
+<!-- === VTURB SCRIPTS === -->
+<script src="https://scripts.converteai.net/e27a5abd-08c6-448d-a8ab-8d3afef5259f/players/69655fb2e9321dd80f6898d4/v4/player.js" defer></script>
+<script src="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" defer></script>
+
+<!-- === FAQ TOGGLE === -->
+<script>
+  function toggleFAQ(btn) {
+    const body = btn.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+    
+    // Close all
+    document.querySelectorAll('.faq-body.open').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.faq-question.active').forEach(q => q.classList.remove('active'));
+    
+    // Toggle current
+    if (!isOpen) {
+      body.classList.add('open');
+      btn.classList.add('active');
+    }
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('eia-visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.eia-reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
