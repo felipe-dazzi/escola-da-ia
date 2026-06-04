@@ -8,9 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="preload" href="https://scripts.converteai.net/e27a5abd-08c6-448d-a8ab-8d3afef5259f/players/69655fb2e9321dd80f6898d4/v4/player.js" as="script" />
-  <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script" />
-  <link rel="preload" href="https://cdn.converteai.net/e27a5abd-08c6-448d-a8ab-8d3afef5259f/69655f7e23fc590cf3645987/main.m3u8" as="fetch" />
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <meta name="theme-color" content="#0A1A0F" />
   <style>
     *, *::before, *::after {
@@ -175,7 +173,8 @@
       isolation: isolate;
     }
 
-    .vsl-wrap vturb-smartplayer {
+    .vsl-wrap vturb-smartplayer,
+    .vsl-wrap video {
       position: absolute;
       inset: 0;
       width: 100% !important;
@@ -954,9 +953,9 @@
     </div>
   </div>
 
-  <!-- === VTURB PLAYER === -->
+  <!-- === VTURB PLAYER (via proxy HLS) === -->
   <div class="vsl-wrap" style="padding: 0 16px 0;">
-    <vturb-smartplayer id="vid-6a20c98d8ffcce0a13060ec2" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
+    <video id="vsl-video" style="width: 100%; height: 100%; object-fit: contain; background: #000;" controls playsinline poster="https://i.ytimg.com/vi/7lAVM2pgQBM/hqdefault.jpg"></video>
   </div>
 
   <!-- === CTA HERO === -->
@@ -1460,9 +1459,29 @@
   <p class="footer-copy">Copyright 2026 © | Escola da IA | Todos os direitos reservados</p>
 </footer>
 
-<!-- === VTURB SCRIPTS === -->
-<script src="https://scripts.converteai.net/e27a5abd-08c6-448d-a8ab-8d3afef5259f/players/69655fb2e9321dd80f6898d4/v4/player.js" defer></script>
-<script src="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" defer></script>
+<!-- === HLS VIDEO PLAYER === -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('vsl-video');
+    if (video) {
+      const videoUrl = '/api/proxy-video?url=' + encodeURIComponent('https://cdn.converteai.net/e27a5abd-08c6-448d-a8ab-8d3afef5259f/69655f7e23fc590cf3645987/main.m3u8');
+      
+      if (Hls.isSupported()) {
+        const hls = new Hls();
+        hls.loadSource(videoUrl);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function() {
+          video.play().catch(function() {});
+        });
+      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = videoUrl;
+        video.addEventListener('loadedmetadata', function() {
+          video.play().catch(function() {});
+        });
+      }
+    }
+  });
+</script>
 
 <!-- === FAQ TOGGLE === -->
 <script>
