@@ -1043,23 +1043,21 @@
     </div>
   </div>
 
-  <!-- === YOUTUBE SHORTS CARD === -->
+  <!-- === YOUTUBE SHORTS CARD (embed inline) === -->
   <div class="yt-shorts-wrap">
-    <div class="yt-shorts-card"
-      data-id="7lAVM2pgQBM"
-      role="button"
-      aria-label="Reproduzir vídeo"
-      tabindex="0"
-    >
+    <div class="yt-shorts-card" id="ytCard" data-id="7lAVM2pgQBM">
       <div class="yt-thumb" style="background-image: url('https://i.ytimg.com/vi/7lAVM2pgQBM/hqdefault.jpg');"></div>
       <div class="yt-overlay"></div>
-      <div class="yt-banner-overlay">
+      <div class="yt-banner-overlay" onclick="playYoutubeInline()">
         <p class="yt-banner-title">Conheça todas as aulas</p>
         <svg class="yt-play-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M8 5v14l11-7z"/>
         </svg>
         <p class="yt-banner-cta">Clique para assistir</p>
       </div>
+    </div>
+    <div id="ytInlinePlayer" class="yt-inline-player" style="display:none; width: min(100%, 340px); aspect-ratio: 9/16; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.45);">
+      <iframe id="ytInlineFrame" width="100%" height="100%" src="" frameborder="0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen style="border-radius: 20px;"></iframe>
     </div>
   </div>
 
@@ -1560,15 +1558,17 @@
     document.body.style.overflow = 'hidden';
   }
 
-  // Clicar no card do YouTube abre modal
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.yt-shorts-card').forEach(function(card) {
-      card.addEventListener('click', function() {
-        var id = this.getAttribute('data-id');
-        if (id) openYoutubeModal(id);
-      });
-    });
-  });
+  // YouTube inline embed - substitui o card pelo player
+  function playYoutubeInline() {
+    var card = document.getElementById('ytCard');
+    var player = document.getElementById('ytInlinePlayer');
+    var iframe = document.getElementById('ytInlineFrame');
+    if (card && player && iframe) {
+      card.style.display = 'none';
+      iframe.src = 'https://www.youtube-nocookie.com/embed/7lAVM2pgQBM?autoplay=1&rel=0';
+      player.style.display = 'block';
+    }
+  }
 
   function closeYoutubeModal(event) {
     if (event && event.target !== event.currentTarget) return;
