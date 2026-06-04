@@ -1050,7 +1050,6 @@
       role="button"
       aria-label="Reproduzir vídeo"
       tabindex="0"
-      onclick="openYoutubeModal('7lAVM2pgQBM')"
     >
       <div class="yt-thumb" style="background-image: url('https://i.ytimg.com/vi/7lAVM2pgQBM/hqdefault.jpg');"></div>
       <div class="yt-overlay"></div>
@@ -1560,6 +1559,16 @@
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
+
+  // Clicar no card do YouTube abre modal
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.yt-shorts-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        var id = this.getAttribute('data-id');
+        if (id) openYoutubeModal(id);
+      });
+    });
+  });
 
   function closeYoutubeModal(event) {
     if (event && event.target !== event.currentTarget) return;
