@@ -864,6 +864,105 @@
       color: rgba(255,255,255,0.7);
     }
 
+/* ===== CARROSSEL DEPOIMENTOS ===== */
+    .testimonial-carousel {
+      position: relative;
+      max-width: 900px;
+      margin: 24px auto 0;
+      padding: 0 40px;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      padding: 8px 4px 16px;
+      scrollbar-width: none;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-slide {
+      flex: 0 0 auto;
+      width: clamp(200px, 28vw, 280px);
+      scroll-snap-align: start;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(0,200,83,0.1);
+      background: #0A1A0F;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0,200,83,0.15);
+      border: 1px solid rgba(0,200,83,0.25);
+      color: #66D9A0;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      z-index: 5;
+      line-height: 1;
+    }
+
+    .carousel-btn:hover {
+      background: rgba(0,200,83,0.25);
+      border-color: rgba(0,200,83,0.4);
+    }
+
+    .carousel-prev { left: 0; }
+    .carousel-next { right: 0; }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.2s;
+    }
+
+    .carousel-dot.active {
+      background: #00C853;
+      width: 22px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 600px) {
+      .testimonial-carousel { padding: 0 32px; }
+      .carousel-slide { width: clamp(160px, 45vw, 220px); }
+      .carousel-btn { width: 30px; height: 30px; font-size: 14px; }
+    }
+
     /* ===== YOUTUBE MODAL ===== */
     .yt-modal {
       display: none;
@@ -1114,9 +1213,9 @@
   </div>
 </section>
 
-<!-- ===== PROVA SOCIAL ===== -->
-<section style="background: #0D1F12;">
-  <div class="social-proof">
+<!-- ===== PROVA SOCIAL (Carrossel de Prints) ===== -->
+<section style="background: #0D1F12; overflow: hidden;">
+  <div style="padding: 2rem 1rem;">
     <div class="section-head">
       <div class="section-eyebrow eia-reveal eia-reveal-d1">
         <span class="section-eyebrow-line"></span>
@@ -1132,89 +1231,39 @@
       </p>
     </div>
 
-    <div class="social-proof-grid">
-      <div class="social-proof-card">
-        <div class="proof-header">
-          <div class="proof-avatar">C</div>
-          <div>
-            <div class="proof-name">Carlos M.</div>
-            <div class="proof-time">há 2 dias</div>
-          </div>
-        </div>
-        <div class="proof-text">
-          "Nunca imaginei que com IA dava pra fazer <span class="highlight">vídeos desse nível</span>. Já tô aplicando no meu negócio!"
-        </div>
+    <div class="testimonial-carousel">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide"><img src="http://escoladaia.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-10-at-00.44.14-7-scaled.jpeg" alt="Depoimento 1" loading="lazy" /></div>
+        <div class="carousel-slide"><img src="http://escoladaia.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-10-at-00.44.14-8-scaled.jpeg" alt="Depoimento 2" loading="lazy" /></div>
+        <div class="carousel-slide"><img src="http://escoladaia.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-10-at-00.44.14-3-scaled.jpeg" alt="Depoimento 3" loading="lazy" /></div>
+        <div class="carousel-slide"><img src="http://escoladaia.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-10-at-00.44.14-10-scaled.jpeg" alt="Depoimento 4" loading="lazy" /></div>
+        <div class="carousel-slide"><img src="http://escoladaia.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-10-at-00.44.14-2-scaled.jpeg" alt="Depoimento 5" loading="lazy" /></div>
+        <div class="carousel-slide"><img src="http://escoladaia.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-10-at-00.44.14-9-scaled.jpeg" alt="Depoimento 6" loading="lazy" /></div>
+        <div class="carousel-slide"><img src="http://escoladaia.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-10-at-00.44.14-1-scaled.jpeg" alt="Depoimento 7" loading="lazy" /></div>
+        <div class="carousel-slide"><img src="http://escoladaia.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-10-at-00.44.12-scaled.jpeg" alt="Depoimento 8" loading="lazy" /></div>
+        <div class="carousel-slide"><img src="http://escoladaia.com/wp-content/uploads/2026/02/WhatsApp-Image-2026-02-10-at-00.44.06-1-scaled.jpeg" alt="Depoimento 9" loading="lazy" /></div>
+        <div class="carousel-slide"><img src="http://escoladaia.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-08-at-10.37.16.jpeg" alt="Depoimento 10" loading="lazy" /></div>
+        <div class="carousel-slide"><img src="http://escoladaia.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-08-at-10.37.19-1.jpeg" alt="Depoimento 11" loading="lazy" /></div>
+        <div class="carousel-slide"><img src="http://escoladaia.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-13-at-22.13.22-scaled.jpeg" alt="Depoimento 12" loading="lazy" /></div>
+        <div class="carousel-slide"><img src="http://escoladaia.com/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-02-at-21.14.49-scaled.jpeg" alt="Depoimento 13" loading="lazy" /></div>
+        <div class="carousel-slide"><img src="http://escoladaia.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-08-at-10.37.17.jpeg" alt="Depoimento 14" loading="lazy" /></div>
+        <div class="carousel-slide"><img src="http://escoladaia.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-12-08-at-10.37.20-1.jpeg" alt="Depoimento 15" loading="lazy" /></div>
+        <div class="carousel-slide"><img src="http://escoladaia.com/wp-content/uploads/2025/03/WhatsApp-Image-2025-03-07-at-17.15.16-8-scaled.jpeg" alt="Depoimento 16" loading="lazy" /></div>
+        <div class="carousel-slide"><img src="http://escoladaia.com/wp-content/uploads/2025/03/WhatsApp-Image-2025-03-07-at-17.32.44.jpeg" alt="Depoimento 17" loading="lazy" /></div>
+        <div class="carousel-slide"><img src="http://escoladaia.com/wp-content/uploads/2025/02/WhatsApp-Image-2025-02-19-at-11.41.08-3-1-scaled-1.jpeg" alt="Depoimento 18" loading="lazy" /></div>
       </div>
 
-      <div class="social-proof-card">
-        <div class="proof-header">
-          <div class="proof-avatar">A</div>
-          <div>
-            <div class="proof-name">Ana P.</div>
-            <div class="proof-time">há 5 dias</div>
-          </div>
-        </div>
-        <div class="proof-text">
-          "O método é muito prático. Em uma semana já tinha <span class="highlight">meu primeiro vídeo viral</span> no TikTok."
-        </div>
-      </div>
+      <button class="carousel-btn carousel-prev" onclick="moveCarousel(-1)" aria-label="Anterior">&#10094;</button>
+      <button class="carousel-btn carousel-next" onclick="moveCarousel(1)" aria-label="Próximo">&#10095;</button>
 
-      <div class="social-proof-card">
-        <div class="proof-header">
-          <div class="proof-avatar">R</div>
-          <div>
-            <div class="proof-name">Rafael S.</div>
-            <div class="proof-time">há 1 semana</div>
-          </div>
-        </div>
-        <div class="proof-text">
-          "Já vendi <span class="highlight">3 serviços</span> usando os vídeos que aprendi a fazer aqui."
-        </div>
-      </div>
-
-      <div class="social-proof-card">
-        <div class="proof-header">
-          <div class="proof-avatar">J</div>
-          <div>
-            <div class="proof-name">Juliana L.</div>
-            <div class="proof-time">há 3 dias</div>
-          </div>
-        </div>
-        <div class="proof-text">
-          "Saí do zero total. Hoje crio <span class="highlight">conteúdo todo dia</span> sem depender de ninguém!"
-        </div>
-      </div>
-
-      <div class="social-proof-card">
-        <div class="proof-header">
-          <div class="proof-avatar">M</div>
-          <div>
-            <div class="proof-name">Marcos V.</div>
-            <div class="proof-time">há 1 semana</div>
-          </div>
-        </div>
-        <div class="proof-text">
-          "O curso vale muito mais que o preço. As <span class="highlight">ferramentas que ensinam</span> são as mesmas dos profissionais."
-        </div>
-      </div>
-
-      <div class="social-proof-card">
-        <div class="proof-header">
-          <div class="proof-avatar">F</div>
-          <div>
-            <div class="proof-name">Fernanda R.</div>
-            <div class="proof-time">há 4 dias</div>
-          </div>
-        </div>
-        <div class="proof-text">
-          "Ganhei <span class="highlight">confiança</span> pra criar conteúdo. O passo a passo é muito claro!"
-        </div>
-      </div>
+      <div class="carousel-dots" id="carouselDots"></div>
     </div>
 
-    <a href="https://pay.kiwify.com.br/2caVtSi?afid=EH60INrp" target="_blank" class="social-proof-cta">
-      QUERO COMEÇAR AGORA
-    </a>
+    <div style="text-align: center; margin-top: 32px;">
+      <a href="https://pay.kiwify.com.br/2caVtSi?afid=EH60INrp" target="_blank" class="social-proof-cta">
+        QUERO COMEÇAR AGORA
+      </a>
+    </div>
   </div>
 </section>
 
@@ -1579,14 +1628,63 @@
     document.body.style.overflow = '';
   }
 
-  // Fechar com ESC
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      const modal = document.getElementById('ytModal');
-      if (modal.classList.contains('open')) {
-        closeYoutubeModal();
+  // Carrossel depoimentos
+  var carouselIndex = 0;
+  var carouselImages = [];
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var track = document.getElementById('carouselTrack');
+    if (!track) return;
+    var slides = track.querySelectorAll('.carousel-slide');
+    carouselImages = slides;
+    var dotsContainer = document.getElementById('carouselDots');
+    if (!dotsContainer) return;
+    slides.forEach(function(_, i) {
+      var dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('data-index', i);
+      dot.addEventListener('click', function() { goToSlide(parseInt(this.getAttribute('data-index'))); });
+      dotsContainer.appendChild(dot);
+    });
+  });
+
+  function moveCarousel(dir) {
+    var track = document.getElementById('carouselTrack');
+    if (!track || carouselImages.length === 0) return;
+    var slideWidth = carouselImages[0].offsetWidth + 16;
+    carouselIndex = Math.max(0, Math.min(carouselIndex + dir, carouselImages.length - 1));
+    track.scrollTo({ left: carouselIndex * slideWidth, behavior: 'smooth' });
+    updateDots();
+  }
+
+  function goToSlide(index) {
+    var track = document.getElementById('carouselTrack');
+    if (!track || carouselImages.length === 0) return;
+    var slideWidth = carouselImages[0].offsetWidth + 16;
+    carouselIndex = Math.max(0, Math.min(index, carouselImages.length - 1));
+    track.scrollTo({ left: carouselIndex * slideWidth, behavior: 'smooth' });
+    updateDots();
+  }
+
+  function updateDots() {
+    document.querySelectorAll('.carousel-dot').forEach(function(dot, i) {
+      dot.classList.toggle('active', i === carouselIndex);
+    });
+  }
+
+  // Atualizar dots ao scrollar manualmente
+  document.addEventListener('DOMContentLoaded', function() {
+    var track = document.getElementById('carouselTrack');
+    if (!track) return;
+    track.addEventListener('scroll', function() {
+      if (carouselImages.length === 0) return;
+      var slideWidth = carouselImages[0].offsetWidth + 16;
+      var idx = Math.round(this.scrollLeft / slideWidth);
+      if (idx !== carouselIndex) {
+        carouselIndex = Math.max(0, Math.min(idx, carouselImages.length - 1));
+        updateDots();
       }
-    }
+    });
   });
 </script>
 
