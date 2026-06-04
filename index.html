@@ -864,7 +864,67 @@
       color: rgba(255,255,255,0.7);
     }
 
-    /* ===== FOOTER ===== */
+    /* ===== YOUTUBE MODAL ===== */
+    .yt-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.92);
+      z-index: 99999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .yt-modal.open {
+      display: flex;
+    }
+
+    .yt-modal-close {
+      position: absolute;
+      top: 20px;
+      right: 26px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: none;
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      z-index: 10;
+    }
+
+    .yt-modal-close:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    .yt-modal-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      aspect-ratio: 9 / 16;
+    }
+
+    .yt-modal-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    @media (max-width: 480px) {
+      .yt-modal { padding: 10px; }
+      .yt-modal-close { top: 12px; right: 14px; width: 36px; height: 36px; }
+    }
     .footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -990,7 +1050,7 @@
       role="button"
       aria-label="Reproduzir vídeo"
       tabindex="0"
-      onclick="window.open('https://www.youtube.com/shorts/7lAVM2pgQBM', '_blank')"
+      onclick="openYoutubeModal('7lAVM2pgQBM')"
     >
       <div class="yt-thumb" style="background-image: url('https://i.ytimg.com/vi/7lAVM2pgQBM/hqdefault.jpg');"></div>
       <div class="yt-overlay"></div>
@@ -1459,6 +1519,14 @@
   <p class="footer-copy">Copyright 2026 © | Escola da IA | Todos os direitos reservados</p>
 </footer>
 
+<!-- === YOUTUBE MODAL === -->
+<div class="yt-modal" id="ytModal" onclick="closeYoutubeModal(event)">
+  <button class="yt-modal-close" onclick="closeYoutubeModal()">&times;</button>
+  <div class="yt-modal-wrapper" onclick="event.stopPropagation()">
+    <iframe id="ytIframe" src="" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
+  </div>
+</div>
+
 <!-- === HLS VIDEO PLAYER === -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -1478,6 +1546,36 @@
         video.addEventListener('loadedmetadata', function() {
           video.play().catch(function() {});
         });
+      }
+    }
+  });
+</script>
+
+<!-- === YOUTUBE MODAL FUNCTIONS === -->
+<script>
+  function openYoutubeModal(videoId) {
+    const modal = document.getElementById('ytModal');
+    const iframe = document.getElementById('ytIframe');
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0';
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeYoutubeModal(event) {
+    if (event && event.target !== event.currentTarget) return;
+    const modal = document.getElementById('ytModal');
+    const iframe = document.getElementById('ytIframe');
+    modal.classList.remove('open');
+    iframe.src = '';
+    document.body.style.overflow = '';
+  }
+
+  // Fechar com ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('ytModal');
+      if (modal.classList.contains('open')) {
+        closeYoutubeModal();
       }
     }
   });
